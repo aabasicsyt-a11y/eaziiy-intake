@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EAZIIY LLC - Music Promotion</title>
+  <style>
+    :root { --bg:#0f0f12; --card:#17171c; --text:#f5f7fa; --muted:#b7bdc9; --accent:#4CAF50; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, sans-serif;
+      color: var(--text); background: radial-gradient(1000px 600px at 20% -10%, #243, transparent), var(--bg);
+      min-height: 100vh; display: grid; place-items: center; padding: 24px;
+    }
+    .card {
+      width: 100%; max-width: 440px; background: var(--card); border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35); padding: 28px;
+    }
+    h1 { margin: 0 0 6px; font-size: 1.6rem; letter-spacing: .2px; }
+    p { margin: 0 0 18px; color: var(--muted); }
+    label { display:block; margin: 14px 0 6px; font-size: .95rem; }
+    input {
+      width: 100%; padding: 12px 14px; border-radius: 10px; border: 1px solid #2a2a30; background: #121217;
+      color: var(--text); outline: none;
+    }
+    input::placeholder { color: #8891a7; }
+    .btn {
+      margin-top: 16px; width: 100%; padding: 12px 14px; border: 0; border-radius: 10px; cursor: pointer;
+      background: var(--accent); color: white; font-weight: 600; font-size: 1rem;
+    }
+    .fine { font-size: .8rem; color: var(--muted); margin-top: 10px; }
+    .brand { display:flex; align-items:center; gap:10px; margin-bottom: 12px; }
+    .logo { width: 36px; height: 36px; border-radius: 9px; background: linear-gradient(135deg, #4CAF50, #2e7d32); display:grid; place-items:center; font-weight:800; }
+    .sr-only { position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden; }
+  </style>
+</head>
+<body>
+  <main class="card" role="main">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">E</div>
+      <div>
+        <h1>EAZIIY LLC</h1>
+        <p>Sign up for our musical promotion services.</p>
+      </div>
+    </div>
+
+    <!-- Replace YOUR_FORM_ID with your Formspree form ID (e.g., xwkrgvba) -->
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <label for="name">Your Name</label>
+      <input id="name" name="name" type="text" placeholder="Jane Doe" required />
+
+      <label for="phone">Phone Number</label>
+      <input id="phone" name="phone" type="tel" placeholder="(555) 123-4567" inputmode="tel"
+             pattern="^[0-9+().\s-]{7,}$" required />
+
+      <!-- Optional: email if you want to capture it
+      <label for="email">Email (optional)</label>
+      <input id="email" name="email" type="email" placeholder="you@example.com" />
+      -->
+
+      <!-- Anti-spam honeypot: leave empty -->
+      <label class="sr-only" for="company">Company</label>
+      <input id="company" name="company" type="text" class="sr-only" tabindex="-1" autocomplete="off" />
+
+      <!-- Formspree helpers -->
+      <input type="hidden" name="_subject" value="New lead from EAZIIY LLC website" />
+      <!-- To redirect to a thank-you page after submit, uncomment and set your URL:
+      <input type="hidden" name="redirect" value="https://yourdomain.com/thanks.html" />
+      -->
+
+      <button class="btn" type="submit">Submit</button>
+
+      <div class="fine">By submitting, you agree to be contacted by EAZIIY LLC about music promotion services.</div>
+    </form>
+  </main>
+</body>
+</html>
